@@ -7,13 +7,13 @@ class Themes {
       secondary: Colors.tealAccent.shade700,
     ),
     primaryColor: Colors.orange,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Colors.black,
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Colors.black,
     ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
         // foregroundColor: Colors.black,
         // backgroundColor: Colors.grey.shade300,
         ),
@@ -24,14 +24,14 @@ class Themes {
       background: Colors.grey.shade800,
       secondary: Colors.tealAccent,
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Colors.white,
     ),
     primaryColor: Colors.orange,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Colors.white,
     ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
         // foregroundColor: Colors.white,
         // backgroundColor: Colors.teal.shade500,
         ),

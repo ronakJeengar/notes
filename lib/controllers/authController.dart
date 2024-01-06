@@ -12,7 +12,7 @@ class AuthController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   String usersCollection = "users";
-  Rx<UserModel> userModel = UserModel().obs;
+  Rx<UserModel> userModel = UserModel(id: '', name: '', email: '').obs;
   Rx<int> axisCount = 2.obs;
 
   User? get user => _firebaseUser.value;
@@ -46,7 +46,7 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar(
         'Error creating account',
-        e.message,
+        e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
     }
@@ -64,7 +64,7 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar(
         'Error logging in',
-        e.message,
+        e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
     }
@@ -73,11 +73,11 @@ class AuthController extends GetxController {
   void signout() async {
     try {
       await _auth.signOut();
-      Get.find<UserController>().user = UserModel();
+      Get.find<UserController>().user = UserModel(id: '', name: '', email: '');
     } catch (e) {
       Get.snackbar(
         'Error signing out',
-        e.message,
+        e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
     }
