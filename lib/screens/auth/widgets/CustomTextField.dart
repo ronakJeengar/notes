@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final IconData iconData;
   final TextEditingController textEditingController;
-  final Function validator;
+  final String? Function(String?)? validator; // Updated type of validator
   final bool obscureText;
 
   @override

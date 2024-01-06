@@ -34,7 +34,7 @@ class Database {
 
   Future<void> addNote(String uid, String title, String body) async {
     try {
-      var uuid = Uuid().v4();
+      var uuid = const Uuid().v4();
       await _firestore
           .collection(userCollection)
           .doc(uid)
@@ -47,7 +47,7 @@ class Database {
         "creationDate": Timestamp.now(),
       });
     } catch (e) {
-      print(e.message);
+      print(e.toString());
     }
   }
 
@@ -65,7 +65,7 @@ class Database {
         "creationDate": Timestamp.now(),
       });
     } catch (e) {
-      print(e.message);
+      print(e.toString());
     }
   }
 
@@ -78,7 +78,7 @@ class Database {
           .doc(id)
           .delete();
     } catch (e) {
-      print(e.message);
+      print(e.toString());
     }
   }
 
@@ -91,9 +91,9 @@ class Database {
         .snapshots()
         .map((QuerySnapshot query) {
       List<NoteModel> retVal = [];
-      query.docs.forEach((element) {
+      for (var element in query.docs) {
         retVal.add(NoteModel.fromDocumentSnapshot(element));
-      });
+      }
       return retVal;
     });
   }
