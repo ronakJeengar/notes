@@ -16,7 +16,7 @@ class HomePage extends GetWidget<AuthController> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             vertical: 10,
             horizontal: 16,
           ),
@@ -36,7 +36,7 @@ class HomePage extends GetWidget<AuthController> {
                               ? Icons.list
                               : Icons.grid_on),
                         ),
-                        Text(
+                        const Text(
                           "Notes",
                           style: TextStyle(
                             fontSize: 24,
@@ -48,25 +48,20 @@ class HomePage extends GetWidget<AuthController> {
                           onPressed: () {
                             Get.to(() => Setting());
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.settings,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   GetX<NoteController>(
                       init: Get.put<NoteController>(NoteController()),
                       builder: (NoteController noteController) {
-                        if (noteController != null &&
-                            noteController.notes != null) {
-                          return NoteList();
-                        } else {
-                          return Text("No notes, create some ");
-                        }
+                        return NoteList();
                       }),
                 ],
               )),
@@ -77,7 +72,7 @@ class HomePage extends GetWidget<AuthController> {
           onPressed: () {
             Get.to(() => AddNotePage());
           },
-          child: Icon(
+          child: const Icon(
             Icons.note_add,
             size: 30,
           )),

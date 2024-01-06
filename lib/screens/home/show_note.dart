@@ -24,7 +24,7 @@ class ShowNote extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
           child: Container(
-            padding: EdgeInsets.all(
+            padding: const EdgeInsets.all(
               16.0,
             ),
             child: Column(
@@ -38,7 +38,7 @@ class ShowNote extends StatelessWidget {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back_ios_outlined,
                       ),
                     ),
@@ -47,13 +47,13 @@ class ShowNote extends StatelessWidget {
                       onPressed: () {
                         showDeleteDialog(context, noteData);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.delete,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Expanded(
@@ -61,21 +61,21 @@ class ShowNote extends StatelessWidget {
                     child: Column(
                       children: [
                         Text("$formattedDate at $time"),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextFormField(
                           controller: titleController,
                           maxLines: null,
-                          decoration: InputDecoration.collapsed(
+                          decoration: const InputDecoration.collapsed(
                             hintText: "Title",
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 26.0,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -83,10 +83,10 @@ class ShowNote extends StatelessWidget {
                           controller: bodyController,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
-                          decoration: InputDecoration.collapsed(
+                          decoration: const InputDecoration.collapsed(
                             hintText: "Type something...",
                           ),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20.0,
                           ),
                         ),
@@ -111,8 +111,8 @@ class ShowNote extends StatelessWidget {
               showSameContentDialog(context);
             }
           },
-          label: Text("Save"),
-          icon: Icon(Icons.save),
+          label: const Text("Save"),
+          icon: const Icon(Icons.save),
         ));
   }
 }
@@ -123,7 +123,7 @@ void showDeleteDialog(BuildContext context, noteData) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         title: Text(
           "Delete Note?",
@@ -163,7 +163,7 @@ void showSameContentDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         title: Text(
           "No change in content!",

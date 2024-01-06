@@ -4,6 +4,8 @@ import 'package:notesapp/screens/widgets/custom_icon_btn.dart';
 import 'package:get/get.dart';
 
 class DarkMode extends StatelessWidget {
+  const DarkMode({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,31 +17,29 @@ class DarkMode extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomIconBtn(
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                      ),
-                      color: Theme.of(context).colorScheme.background,
-                      onPressed: () {
-                        Get.back();
-                      },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomIconBtn(
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 5,
+                    color: Theme.of(context).colorScheme.background,
+                    onPressed: () {
+                      Get.back();
+                    },
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 5,
+                  ),
+                  const Text(
+                    "Appearnace",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const Text(
-                      "Appearnace",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 20,

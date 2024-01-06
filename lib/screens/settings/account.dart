@@ -7,49 +7,49 @@ import 'package:get/get.dart';
 class Account extends StatelessWidget {
   final UserController userController = Get.find<UserController>();
 
+  Account({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             vertical: 10,
             horizontal: 16,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomIconBtn(
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                      ),
-                      color: Theme.of(context).colorScheme.background,
-                      onPressed: () {
-                        Get.back();
-                      },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomIconBtn(
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 4,
+                    color: Theme.of(context).colorScheme.background,
+                    onPressed: () {
+                      Get.back();
+                    },
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 4,
+                  ),
+                  const Text(
+                    "Account",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      "Account",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: RichText(
                   text: TextSpan(
                     children: [
@@ -60,7 +60,7 @@ class Account extends StatelessWidget {
                           fontSize: 18,
                         ),
                       ),
-                      WidgetSpan(
+                      const WidgetSpan(
                           child: Icon(
                             Icons.email,
                             size: 14,
@@ -78,13 +78,13 @@ class Account extends StatelessWidget {
                 ),
               ),
               ListTile(
-                contentPadding: EdgeInsets.symmetric(
+                contentPadding: const EdgeInsets.symmetric(
                   horizontal: 15,
                 ),
                 onTap: () {
                   showSignOutDialog(context);
                 },
-                title: Text("Logout"),
+                title: const Text("Logout"),
                 leading: Icon(
                   Icons.power_settings_new_outlined,
                   color: Theme.of(context).iconTheme.color,
@@ -105,10 +105,10 @@ void showSignOutDialog(BuildContext context) async {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        contentPadding: EdgeInsets.all(20),
-        actionsPadding: EdgeInsets.only(right: 60),
+        contentPadding: const EdgeInsets.all(20),
+        actionsPadding: const EdgeInsets.only(right: 60),
         backgroundColor: Theme.of(context).colorScheme.background,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(20.0),
           ),
@@ -128,12 +128,6 @@ void showSignOutDialog(BuildContext context) async {
         ),
         actions: <Widget>[
           ElevatedButton(
-            child: Text("Log Out",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                )),
             onPressed: () {
               Get.back();
               authController.signout();
@@ -142,6 +136,12 @@ void showSignOutDialog(BuildContext context) async {
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.background,
             ),
+            child: Text("Log Out",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                )),
           ),
           TextButton(
             child: Text("Cancel",

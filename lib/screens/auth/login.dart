@@ -9,6 +9,8 @@ class Login extends StatelessWidget {
   final AuthController authController = Get.find<AuthController>();
   final UserController userController = Get.find<UserController>();
 
+  Login({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +25,14 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Text(
-                  'Hello there,\nWelocome back',
+                const Text(
+                  'Hello there,\n Welcome back',
                   style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Form(
@@ -59,13 +61,13 @@ class Login extends StatelessWidget {
                                   color: Theme.of(context).colorScheme.secondary,
                                 ),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.grey,
                               ),
                               hintText: "EMAIL"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         TextFormField(
@@ -79,7 +81,7 @@ class Login extends StatelessWidget {
                             return null;
                           },
                           decoration: InputDecoration(
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.security,
                                 color: Colors.grey,
                               ),
@@ -100,7 +102,7 @@ class Login extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 ElevatedButton(
@@ -109,20 +111,20 @@ class Login extends StatelessWidget {
                       Colors.tealAccent.shade700,
                     ),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                     ),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
                     minimumSize: MaterialStateProperty.all(
-                      Size(
+                      const Size(
                         250,
                         50,
                       ),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     "SIGN IN",
                     style: TextStyle(
                       fontSize: 18,
@@ -136,13 +138,13 @@ class Login extends StatelessWidget {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "New here?  ",
                       style: TextStyle(
                         // color: Colors.grey.shade900,
@@ -153,7 +155,7 @@ class Login extends StatelessWidget {
                       onTap: () {
                         Get.to(() => SignUp());
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign up instead",
                         style: TextStyle(
                           fontSize: 16,

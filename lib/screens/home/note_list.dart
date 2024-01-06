@@ -46,7 +46,7 @@ class NoteList extends StatelessWidget {
                   index: index, noteData: noteController.notes[index]));
             },
             child: Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 bottom: 10,
                 left: 10,
                 right: 10,
@@ -59,21 +59,21 @@ class NoteList extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    contentPadding: EdgeInsets.only(
+                    contentPadding: const EdgeInsets.only(
                       top: 5,
                       right: 8,
                       left: 8,
                       bottom: 0,
                     ),
                     title: Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         vertical: 8,
                       ),
                       child: Text(
                         noteController.notes[index].title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -84,7 +84,7 @@ class NoteList extends StatelessWidget {
                       noteController.notes[index].body,
                       maxLines: 10,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.black,
                       ),
@@ -95,7 +95,7 @@ class NoteList extends StatelessWidget {
                     children: [
                       Text(
                         formattedDate,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                       ),

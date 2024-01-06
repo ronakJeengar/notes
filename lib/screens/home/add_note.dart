@@ -10,6 +10,8 @@ class AddNotePage extends StatelessWidget {
   final AuthController authController = Get.find<AuthController>();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController bodyController = TextEditingController();
+
+  AddNotePage({super.key});
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -17,7 +19,7 @@ class AddNotePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: size.height,
-          padding: EdgeInsets.all(
+          padding: const EdgeInsets.all(
             16.0,
           ),
           child: Column(children: <Widget>[
@@ -29,14 +31,14 @@ class AddNotePage extends StatelessWidget {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_outlined,
                   ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 4,
                 ),
-                Text(
+                const Text(
                   "Notes",
                   style: TextStyle(
                     fontSize: 24,
@@ -45,7 +47,7 @@ class AddNotePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -58,15 +60,15 @@ class AddNotePage extends StatelessWidget {
                       controller: titleController,
                       keyboardType: TextInputType.multiline,
                       textCapitalization: TextCapitalization.sentences,
-                      decoration: InputDecoration.collapsed(
+                      decoration: const InputDecoration.collapsed(
                         hintText: "Title",
                       ),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 26.0,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -74,10 +76,10 @@ class AddNotePage extends StatelessWidget {
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       textCapitalization: TextCapitalization.sentences,
-                      decoration: InputDecoration.collapsed(
+                      decoration: const InputDecoration.collapsed(
                         hintText: "Type something...",
                       ),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20.0,
                       ),
                     ),
@@ -90,8 +92,8 @@ class AddNotePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          if (titleController.text.length == 0 &&
-              bodyController.text.length == 0) {
+          if (titleController.text.isEmpty &&
+              bodyController.text.isEmpty) {
             showEmptyTitleDialog(context);
           } else {
             Database().addNote(authController.user!.uid, titleController.text,
@@ -99,8 +101,8 @@ class AddNotePage extends StatelessWidget {
             Get.back();
           }
         },
-        label: Text("Save"),
-        icon: Icon(Icons.save),
+        label: const Text("Save"),
+        icon: const Icon(Icons.save),
       ),
     );
   }
@@ -113,7 +115,7 @@ void showEmptyTitleDialog(BuildContext context) {
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: Theme.of(context).colorScheme.background,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),
