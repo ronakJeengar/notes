@@ -19,7 +19,7 @@ class AuthController extends GetxController {
 
   @override
   void onInit() {
-    _firebaseUser = Rx<User>(_auth.currentUser!);
+    _firebaseUser = Rx<User?>(_auth.currentUser);
     _firebaseUser.bindStream(_auth.userChanges());
     super.onInit();
   }
@@ -30,14 +30,14 @@ class AuthController extends GetxController {
           .createUserWithEmailAndPassword(
               email: email.text.trim(), password: password.text.trim())
           .then((value) {
-        UserModel _user = UserModel(
+        UserModel user = UserModel(
           id: value.user!.uid,
           name: name.text,
           email: email.text,
         );
-        Database().createNewUser(_user).then((value) {
+        Database().createNewUser(user).then((value) {
           if (value) {
-            Get.find<UserController>().user = _user;
+            Get.find<UserController>().user = user;
             Get.back();
             _clearControllers();
           }
